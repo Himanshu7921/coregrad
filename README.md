@@ -130,6 +130,14 @@ The `Scalar` abstraction overloads standard Python magic methods to construct dy
 
 ---
 
+## Installation
+The framework is packaged as a lightweight, zero-dependency distribution on the Python Package Index (PyPI). It requires numpy exclusively for internal scalar mathematical functions (such as hyperbolic tangents and logarithmic scaling evaluation).
+
+To provision the specific release version directly into your research environment, execute:
+```bash
+pip install coregrad==0.1.0
+```
+
 ## Implementation & Usage
 
 The following verification script demonstrates primal structural mapping, reverse execution initialization via `.backward()`, and topological adjoint propagation across a single neuron optimization checkpoint.
