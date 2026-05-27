@@ -182,7 +182,7 @@ To verify the optimization capability of this scalar engine within high-dimensio
 
 The accompanying repository evaluates `coregrad` on the standard MNIST digit classification task, verifying optimization stability under standard batch stochastic gradient descent (SGD).
 
-* **MNIST Digit Classifier Experimentation Pipeline:** [https://github.com/himanshu-singh/coregrad-mnist](https://www.google.com/search?q=https://github.com/himanshu-singh/coregrad-mnist) *(Placeholder - Update upon publication)*
+* **MNIST Digit Classifier Experimentation Pipeline:** [https://github.com/Himanshu7921/coregrad-mnist](https://github.com/Himanshu7921/coregrad-mnist)
 
 ---
 
