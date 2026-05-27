@@ -25,6 +25,7 @@ Implemented differentiable operations:
     - Multiplication
     - Division
     - Power
+    - Softmax()
     - Hyperbolic Tangent (tanh)
 
 Features:
@@ -126,6 +127,14 @@ class Scalar:
         out._backward = _backward
         return out
     
+    def exp(self):
+        x = np.exp(self.data)
+        out = Scalar(x, var_name="exp", _prev=(self,), _op="exp")
+        def _backward():
+            self.grad += out.data * out.grad
+        out._backward = _backward
+        return out
+
     def backward(self):
         # To add this functionality we need to implement a topological sorting
         topo_sorted = []
