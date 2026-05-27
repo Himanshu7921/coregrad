@@ -121,7 +121,7 @@ class Scalar:
     def tanh(self):
         x = self.data
         tanh_x = ((np.exp(2*x) - 1) / (np.exp(2*x) + 1))
-        out = Scalar(tanh_x, var_name = "tanh", _prev = (self, ), _op = "tanh")
+        out = Scalar(tanh_x, var_name = "tanh(x)", _prev = (self, ), _op = "tanh(x)")
         def _backward():
             self.grad += (1 - out.data**2) * out.grad
         out._backward = _backward
@@ -129,11 +129,19 @@ class Scalar:
     
     def exp(self):
         x = np.exp(self.data)
-        out = Scalar(x, var_name="exp", _prev=(self,), _op="exp")
+        out = Scalar(x, var_name="exp(x)", _prev=(self,), _op="exp(x)")
         def _backward():
             self.grad += out.data * out.grad
         out._backward = _backward
         return out
+    
+    def log(self):
+        out = Scalar(np.log(self.data), var_name="log(x)", _prev = (self,), _op = "log(x)")
+        def _backward():
+            self.grad += (1 / self.data) * out.grad
+        out._backward = _backward
+        return out
+
 
     def backward(self):
         # To add this functionality we need to implement a topological sorting
