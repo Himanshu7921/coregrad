@@ -20,5 +20,10 @@ dependencies = [
     "graphviz",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "torch"
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
